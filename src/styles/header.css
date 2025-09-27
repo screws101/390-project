@@ -1,0 +1,29 @@
+/* Header Styles */
+.page-header {
+  background-color: #ffffff;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page-title {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1.5rem 0;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
