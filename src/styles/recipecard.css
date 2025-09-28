@@ -1,4 +1,3 @@
-/* Recipe Card Styles */
 .recipe-card {
   background-color: #ffffff;
   border-radius: 0.75rem;
@@ -36,7 +35,6 @@
   gap: 0.25rem;
 }
 
-/* Recipe Grid Layout */
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -5,7 +5,6 @@ import Header from './Header';
 const Layout = () => {
   const location = useLocation();
   
-  // Map routes to page titles
   const getPageTitle = (pathname) => {
     switch (pathname) {
       case '/':

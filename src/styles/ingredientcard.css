@@ -1,4 +1,3 @@
-/* Ingredient Card Styles */
 .ingredient-card {
   background-color: #ffffff;
   border-radius: 0.75rem;
@@ -36,7 +35,6 @@
   gap: 0.25rem;
 }
 
-/* Ingredient Grid Layout */
 .ingredients-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
