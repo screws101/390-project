@@ -69,7 +69,6 @@ const Pantry = () => {
 
     return (
         <div className="pantry-container">
-            <h2>Your Pantry</h2>
             <div className="pantry-controls">
                 <input
                     type="text"

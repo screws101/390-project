@@ -64,7 +64,6 @@ const GroceryList = () => {
 
     return (
         <div className="grocery-container">
-            <h2>Grocery List</h2>
             <button className="add-ingredient-btn" onClick={() => setShowForm(true)}>
                 Add New Ingredient
             </button>

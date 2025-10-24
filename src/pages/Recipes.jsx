@@ -117,7 +117,6 @@ const Recipes = () => {
 
     return (
         <div className="recipes-container">
-            <h2>Recipes</h2>
             <div className="recipes-controls">
                 <input
                     type="text"
