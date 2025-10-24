@@ -1,3 +1,4 @@
+// Main App component handles routing and layout for the entire application
 import './App.css';
 import { Outlet, useLocation, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -11,6 +12,8 @@ import GroceryList from './pages/GroceryList';
 const App = () => {
   const location = useLocation();
   
+  // Determines page title based on the current route
+  // Special handling for the recipes page when adding a new recipe
   const getPageTitle = (pathname) => {
     switch (pathname) {
     case '/meal-plan':
@@ -29,8 +32,13 @@ const App = () => {
 
   return (
     <div className="app">
+      {/* Navigation bar component, appears on all pages */}
       <Navbar />
+      
+      {/* Dynamic header that displays the current page title */}
       <Header pageTitle={getPageTitle(location.pathname)} />
+      
+      {/* React Router Routes - defines all available pages in the application */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/meal-plan" element={<MealPlan />} />

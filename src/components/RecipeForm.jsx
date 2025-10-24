@@ -1,12 +1,15 @@
+// RecipeForm component form for creating new recipes with all required fields
 import { useState } from 'react';
 import "../styles/RecipeForm.css";
 
 const RecipeForm = ({ onSubmit, onCancel }) => {
+    // State for form fields
     const [name, setName] = useState('');
     const [cookTime, setCookTime] = useState('');
     const [calories, setCalories] = useState('');
     const [ingredients, setIngredients] = useState('');
 
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log({ name, calories, ingredients });
@@ -16,7 +19,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
             onSubmit(e);
         }
         
-        // Reset form
+        // Reset form after submission
         setName('');
         setCookTime('');
         setCalories('');
@@ -26,6 +29,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className='form-container'>
+                {/* Recipe name input field */}
                 <div className='name-field'>
                     <label htmlFor="name">Recipe Name:</label>
                     <input
@@ -38,6 +42,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Cook time input field */}
                 <div className='cook-time-field'>
                     <label htmlFor="cookTime">Cook Time:</label>
                     <input
@@ -51,6 +56,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Calories input field */}
                 <div className='cal-field'>
                     <label htmlFor="calories">Calories:</label>
                     <input
@@ -63,6 +69,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Ingredients textarea field */}
                 <div className='ingredient-field'>
                     <label htmlFor="ingredients">Ingredients:</label>
                     <textarea
@@ -75,6 +82,7 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Form action buttons */}
                 <div className="form-buttons">
                     <button type="submit" className='add-recipe'>Add Recipe</button>
                     {onCancel && (
@@ -82,7 +90,6 @@ const RecipeForm = ({ onSubmit, onCancel }) => {
                     )}
                 </div>
             </div>
-            
         </form>
     );
 };

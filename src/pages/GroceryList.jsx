@@ -1,9 +1,11 @@
+// GroceryList page component manages grocery items with quantity tracking
 import { useState } from 'react';
 import GroceryCard from '../components/GroceryCards';
 import IngredientForm from '../components/IngredientForm';
 import '../styles/GroceryList.css';
 
 const GroceryList = () => {
+    // Sample grocery items (just examples)
     const initialGroceryItems = [
         { name: 'Bread', quantity: 2 },
         { name: 'Milk', quantity: 1 },
@@ -17,12 +19,14 @@ const GroceryList = () => {
         { name: 'Bananas', quantity: 6 }
     ];
 
+    // State management
     const [groceryItems, setGroceryItems] = useState(initialGroceryItems);
     const [showForm, setShowForm] = useState(false);
 
     // Filter out items with quantity 0
     const availableItems = groceryItems.filter(item => item.quantity > 0);
 
+    // Handle quantity changes for grocery items
     const handleQuantityChange = (itemName, newQuantity) => {
         setGroceryItems(prevItems => 
             prevItems.map(item => 
@@ -33,6 +37,7 @@ const GroceryList = () => {
         );
     };
 
+    // Handle adding new items to the grocery list
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
@@ -50,10 +55,12 @@ const GroceryList = () => {
         setShowForm(false);
     };
 
+    // Handle canceling the ingredient form
     const handleCancel = () => {
         setShowForm(false);
     };
     
+    // Show ingredient form when adding a new grocery item
     if (showForm) {
         return (
             <div className="grocery-form-container">
@@ -64,9 +71,12 @@ const GroceryList = () => {
 
     return (
         <div className="grocery-container">
+            {/* Button to add new items to grocery list */}
             <button className="add-ingredient-btn" onClick={() => setShowForm(true)}>
                 Add New Ingredient
             </button>
+            
+            {/* Grid of grocery item cards */}
             <div className="grocery-grid">
                 {availableItems.map((item, index) => (
                     <GroceryCard 

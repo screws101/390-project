@@ -1,10 +1,13 @@
+// IngredientForm component form for adding new ingredients to pantry or grocery list
 import { useState } from 'react';
 import "../styles/IngredientForm.css";
 
 const IngredientForm = ({ onSubmit, onCancel }) => {
+    // State for form fields
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState('');
 
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log({ name, quantity });
@@ -14,7 +17,7 @@ const IngredientForm = ({ onSubmit, onCancel }) => {
             onSubmit(e);
         }
         
-        // Reset form
+        // Reset form after submission
         setName('');
         setQuantity('');
     };
@@ -22,6 +25,7 @@ const IngredientForm = ({ onSubmit, onCancel }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className='form-container'>
+                {/* Ingredient name input field */}
                 <div className='name-field'>
                     <label htmlFor="name">Ingredient Name:</label>
                     <input
@@ -34,6 +38,7 @@ const IngredientForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Quantity input field */}
                 <div className='quantity-field'>
                     <label htmlFor="quantity">Quantity:</label>
                     <input
@@ -47,6 +52,7 @@ const IngredientForm = ({ onSubmit, onCancel }) => {
                     />
                 </div>
 
+                {/* Form action buttons */}
                 <div className="form-buttons">
                     <button type="submit" className='add-ingredient'>Add Ingredient</button>
                     {onCancel && (

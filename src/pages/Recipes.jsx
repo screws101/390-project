@@ -1,3 +1,4 @@
+// Recipes page component manages recipe collection, creation, and meal plan adding
 import { useState, useEffect } from 'react';
 import RecipeCards from '../components/RecipeCards';
 import RecipeForm from '../components/RecipeForm';
@@ -5,10 +6,13 @@ import DaySelectionModal from '../components/DaySelectionModal';
 import '../styles/DaySelectionModal.css';
 
 const Recipes = () => {
+    // State management for different UI states
     const [showForm, setShowForm] = useState(false);
     const [showDayModal, setShowDayModal] = useState(false);
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    
+    // Initial recipes data (just examples)
     const [recipes, setRecipes] = useState([
         {
             name: 'Chocolate Chip Cookies',
@@ -48,6 +52,7 @@ const Recipes = () => {
         }
     }, [showForm]);
 
+    // Handle new recipe form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
@@ -67,10 +72,12 @@ const Recipes = () => {
         setShowForm(false);
     };
 
+    // Handle canceling the recipe form
     const handleCancel = () => {
         setShowForm(false);
     };
 
+    // Handle deleting a recipe with confirmation
     const handleDeleteRecipe = (index) => {
         const recipeName = recipes[index].name;
         const isConfirmed = window.confirm(`Are you sure you want to delete "${recipeName}"?`);
@@ -80,13 +87,15 @@ const Recipes = () => {
         }
     };
 
+    // Handle adding a recipe to the meal plan
     const handleAddToMealPlan = (recipe) => {
         setSelectedRecipe(recipe);
         setShowDayModal(true);
     };
 
+    // Handle selecting a day for the meal plan
     const handleDaySelect = (day, recipe) => {
-        // Store the meal plan data in localStorage for now
+
         const mealPlanData = JSON.parse(localStorage.getItem('mealPlan') || '{}');
         if (!mealPlanData[day]) {
             mealPlanData[day] = [];
@@ -97,6 +106,7 @@ const Recipes = () => {
         alert(`"${recipe.name}" has been added to ${day}!`);
     };
 
+    // Handle closing the day selection modal
     const handleCloseModal = () => {
         setShowDayModal(false);
         setSelectedRecipe(null);
@@ -107,6 +117,7 @@ const Recipes = () => {
         recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Show recipe form when adding a new recipe
     if (showForm) {
         return (
             <div className="recipes-form-container">
@@ -117,6 +128,7 @@ const Recipes = () => {
 
     return (
         <div className="recipes-container">
+            {/* Search and add recipe controls */}
             <div className="recipes-controls">
                 <input
                     type="text"
@@ -129,6 +141,8 @@ const Recipes = () => {
                     + Add New Recipe
                 </button>
             </div>
+            
+            {/* Grid of recipe cards */}
             <div className="recipes-grid">
                 {filteredRecipes.map((recipe, index) => (
                     <RecipeCards
@@ -143,6 +157,7 @@ const Recipes = () => {
                 ))}
             </div>
             
+            {/* Day selection modal for adding recipes to meal plan */}
             <DaySelectionModal
                 isOpen={showDayModal}
                 onClose={handleCloseModal}

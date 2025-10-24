@@ -1,10 +1,11 @@
+// Pantry page component manages pantry ingredients with search and quantity tracking
 import { useState } from 'react';
 import IngredientCard from '../components/IngredientCard';
 import IngredientForm from '../components/IngredientForm';
 import '../styles/Pantry.css';
 
 const Pantry = () => {
-    // Sample pantry data - you can replace this with actual data
+    // Sample pantry data (just examples)
     const initialIngredients = [
         { name: 'Flour', quantity: 2 },
         { name: 'Sugar', quantity: 1 },
@@ -18,6 +19,7 @@ const Pantry = () => {
         { name: 'Tomatoes', quantity: 6 }
     ];
 
+    // State management
     const [pantryIngredients, setPantryIngredients] = useState(initialIngredients);
     const [searchTerm, setSearchTerm] = useState('');
     const [showForm, setShowForm] = useState(false);
@@ -28,6 +30,7 @@ const Pantry = () => {
         ingredient.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Handle quantity changes for pantry ingredients
     const handleQuantityChange = (ingredientName, newQuantity) => {
         setPantryIngredients(prevIngredients => 
             prevIngredients.map(ingredient => 
@@ -38,6 +41,7 @@ const Pantry = () => {
         );
     };
 
+    // Handle adding new ingredients to the pantry
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
@@ -55,10 +59,12 @@ const Pantry = () => {
         setShowForm(false);
     };
 
+    // Handle canceling the ingredient form
     const handleCancel = () => {
         setShowForm(false);
     };
 
+    // Show ingredient form when adding a new ingredient
     if (showForm) {
         return (
             <div className="pantry-form-container">
@@ -69,6 +75,7 @@ const Pantry = () => {
 
     return (
         <div className="pantry-container">
+            {/* Search and add ingredient controls */}
             <div className="pantry-controls">
                 <input
                     type="text"
@@ -81,6 +88,8 @@ const Pantry = () => {
                     Add New Ingredient
                 </button>
             </div>
+            
+            {/* Grid of ingredient cards */}
             <div className="ingredients-grid">
                 {availableIngredients.map((ingredient, index) => (
                     <IngredientCard 

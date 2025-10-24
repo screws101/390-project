@@ -1,6 +1,8 @@
+// Navigation bar component, provides main navigation links across the application
 import {Link} from "react-router-dom";
 
 const Navbar = () => {
+    // Inline styles for the navigation bar and its elements due to issues with CSS files
     const styles = {
         navbar: {
             backgroundColor: '#ffffff',
@@ -40,6 +42,7 @@ const Navbar = () => {
     return(
         <div style={styles.navbar}>
             <nav style={styles.nav}>
+                {/* Navigation links to all main pages in the application */}
                 <ul style={styles.navList}>
                     <li>
                         <Link to = "/" style={styles.navLink}>Little Helper</Link>
