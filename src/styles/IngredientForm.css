@@ -1,0 +1,67 @@
+.grocery-form-container{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+}
+
+.form-container{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+}
+
+.add-ingredient{
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+    margin-top: auto;
+    align-self: flex-start;
+    width: fit-content;
+    height:fit-content;
+}
+
+.add-ingredient:hover{
+    background-color: #314F16;
+}
+
+.cancel{
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+    margin-top: auto;
+    align-self: flex-start;
+    width: fit-content;
+    height:fit-content;
+}
+
+.cancel:hover{
+    background-color: #314F16;
+}
+
+.name-field{
+    margin: 1rem;
+}
+
+.quantity-field{
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}

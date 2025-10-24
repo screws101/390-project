@@ -1,0 +1,35 @@
+.inc-dec-btn-group{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+button{
+    width: 1rem;
+    height: 1rem;
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+    color: green;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background-color: aliceblue;
+}
+
+.inc-dec-btn-group > p {
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid aliceblue;
+    border-right: 1px solid aliceblue;
+    color: #426B1F;
+    font-weight: 600;
+}

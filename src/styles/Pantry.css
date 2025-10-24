@@ -1,0 +1,64 @@
+.pantry-container {
+    padding: 2rem;
+}
+
+.pantry-container h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pantry-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.search-input {
+    max-width: 300px;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E6E6E6;
+    border-radius: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #426B1F;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.add-ingredient-btn {
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 1.25rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.add-ingredient-btn:hover {
+    background-color: #314F16;
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}

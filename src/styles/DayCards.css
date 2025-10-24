@@ -1,0 +1,138 @@
+.day-card {
+    background-color: #ffffff;
+    border-radius: .75rem;
+    border: 1px solid #E6E6E6;
+    width: 15rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    margin: 1.5rem;
+}
+
+.day-title {
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.day-recipes {
+    margin-bottom: 1.5rem;
+}
+
+.day-recipe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid #E6E6E6;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.recipe-details {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.day-recipe-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.day-recipe-item:last-child {
+    margin-bottom: 0;
+}
+
+.recipe-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.recipe-cook-time {
+    color: #6D6D6D;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+}
+
+.recipe-calories {
+    color: #426B1F;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.no-recipes {
+    color: #6D6D6D;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.day-action-btn {
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.day-action-btn:hover {
+    background-color: #314F16;
+}
+
+.day-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.day-cards-container h2 {
+    grid-column: 1 / -1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.remove-recipe-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    color: #dc3545;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-recipe-btn:hover {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.remove-recipe-btn .material-symbols-outlined {
+    font-size: 1.25rem;
+}

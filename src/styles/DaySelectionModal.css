@@ -1,0 +1,103 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-content h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-content p {
+    margin: 0 0 1.5rem 0;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+}
+
+.day-selector {
+    margin-bottom: 2rem;
+}
+
+.day-dropdown {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E6E6E6;
+    border-radius: 0.5rem;
+    background: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.day-dropdown:focus {
+    outline: none;
+    border-color: #426B1F;
+}
+
+.day-dropdown:hover {
+    border-color: #426B1F;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.cancel-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: #426B1F;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+}
+
+.cancel-btn:hover {
+    background-color: #314F16;
+}
+
+.confirm-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: #426B1F;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    background-color: #314F16;
+}
+
+.confirm-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

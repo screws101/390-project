@@ -1,3 +1,5 @@
+import '../styles/Header.css';
+
 const Header = ({ pageTitle = "Page Title" }) => {
     return(
         <header className="page-header">

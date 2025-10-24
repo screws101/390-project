@@ -1,30 +1,45 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AppProvider } from './context/AppContext';
-import Layout from './components/Layout';
-import MealPlan from './pages/MealPlan';
-import YourPantry from './pages/YourPantry';
+import { Outlet, useLocation, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import Home from './components/Home';
+import MealPlan from './components/MealPlan';
+import Pantry from './pages/Pantry';
 import Recipes from './pages/Recipes';
 import GroceryList from './pages/GroceryList';
 
-function App() {
-  const basename = import.meta.env.BASE_URL;
+const App = () => {
+  const location = useLocation();
   
+  const getPageTitle = (pathname) => {
+    switch (pathname) {
+    case '/meal-plan':
+        return 'Meal Plan';
+      case '/pantry':
+        return 'Your Pantry';
+      case '/recipes':
+        // Check if we're showing the add recipe form
+        return window.location.hash === '#add-recipe' ? 'Add a new recipe' : 'Recipes';
+      case '/grocery-list':
+        return 'Grocery List';
+      default:
+        return 'Little Helper';
+    }
+  };
+
   return (
-    <AppProvider>
-      <Router basename={basename}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<MealPlan />} />
-            <Route path="pantry" element={<YourPantry />} />
-            <Route path="recipes" element={<Recipes />} />
-            <Route path="grocery-list" element={<GroceryList />} />
-          </Route>
-        </Routes>
-      </Router>
-    </AppProvider>
-  )
-}
+    <div className="app">
+      <Navbar />
+      <Header pageTitle={getPageTitle(location.pathname)} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/meal-plan" element={<MealPlan />} />
+        <Route path="/pantry" element={<Pantry />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/grocery-list" element={<GroceryList />} />
+      </Routes>
+    </div>
+  );
+};
 
 export default App;
-

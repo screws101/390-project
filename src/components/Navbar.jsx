@@ -1,22 +1,28 @@
-import { Link } from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
     return(
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="navbar-brand">
-                    <Link to="/" className="brand-logo">Little Helper</Link>
-                </div>
-                <div className="navbar-links">
-                    <Link to="/" className="nav-link">Meal Plan</Link>
-                    <Link to="/pantry" className="nav-link">Your Pantry</Link>
-                    <Link to="/recipes" className="nav-link">Recipes</Link>
-                </div>
-                <div className="navbar-actions">
-                    <Link to="/grocery-list" className="btn-navbar">Grocery List</Link>
-                </div>
-            </div>
-        </nav>
+        <div className="navbar">
+            <nav className="nav">
+                <ul className="nav-list">
+                    <li>
+                        <Link to = "/">Little Helper</Link>
+                    </li>
+                    <li>
+                        <Link to = "/meal-plan">Meal Plan</Link>
+                    </li>
+                    <li>
+                        <Link to = "/pantry">Pantry</Link>
+                    </li>
+                    <li>
+                        <Link to = "/recipes">Recipes</Link>
+                    </li>
+                    <li>
+                        <Link to = "/grocery-list">Grocery List</Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     );
 }
 

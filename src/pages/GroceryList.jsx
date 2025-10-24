@@ -1,104 +1,85 @@
 import { useState } from 'react';
-import GroceryCard from '../components/GroceryCard';
-import PageContent from '../components/PageContent';
-import { useAppContext } from '../context/AppContext';
-import '../styles/grocerycard.css';
+import GroceryCard from '../components/GroceryCards';
+import IngredientForm from '../components/IngredientForm';
+import '../styles/GroceryList.css';
 
 const GroceryList = () => {
-  const { groceryList, addGroceryItem, removeGroceryItem, toggleGroceryPurchased } = useAppContext();
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [newItemName, setNewItemName] = useState('');
-  const [newItemQuantity, setNewItemQuantity] = useState('');
+    const initialGroceryItems = [
+        { name: 'Bread', quantity: 2 },
+        { name: 'Milk', quantity: 1 },
+        { name: 'Eggs', quantity: 12 },
+        { name: 'Chicken Breast', quantity: 4 },
+        { name: 'Rice', quantity: 1 },
+        { name: 'Tomatoes', quantity: 6 },
+        { name: 'Onions', quantity: 3 },
+        { name: 'Cheese', quantity: 2 },
+        { name: 'Apples', quantity: 8 },
+        { name: 'Bananas', quantity: 6 }
+    ];
 
-  const handleAddItem = (e) => {
-    e.preventDefault();
-    if (newItemName.trim() && newItemQuantity) {
-      addGroceryItem(newItemName.trim(), newItemQuantity);
-      setNewItemName('');
-      setNewItemQuantity('');
-      setShowAddForm(false);
+    const [groceryItems, setGroceryItems] = useState(initialGroceryItems);
+    const [showForm, setShowForm] = useState(false);
+
+    // Filter out items with quantity 0
+    const availableItems = groceryItems.filter(item => item.quantity > 0);
+
+    const handleQuantityChange = (itemName, newQuantity) => {
+        setGroceryItems(prevItems => 
+            prevItems.map(item => 
+                item.name === itemName 
+                    ? { ...item, quantity: newQuantity }
+                    : item
+            )
+        );
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        
+        // Get form data from the form element
+        const formData = new FormData(e.target);
+        const newItem = {
+            name: formData.get('name') || '',
+            quantity: parseInt(formData.get('quantity')) || 0
+        };
+        
+        // Add the new item to the grocery items array
+        setGroceryItems(prevItems => [...prevItems, newItem]);
+        
+        console.log('Ingredient submitted successfully:', newItem);
+        setShowForm(false);
+    };
+
+    const handleCancel = () => {
+        setShowForm(false);
+    };
+    
+    if (showForm) {
+        return (
+            <div className="grocery-form-container">
+                <IngredientForm onSubmit={handleFormSubmit} onCancel={handleCancel} />
+            </div>
+        );
     }
-  };
 
-  const unpurchasedItems = groceryList.filter(item => !item.purchased);
-  const purchasedItems = groceryList.filter(item => item.purchased);
-
-  return (
-    <PageContent>
-      <div className="grocery-header">
-        <button 
-          className="btn-add-grocery"
-          onClick={() => setShowAddForm(!showAddForm)}
-        >
-          {showAddForm ? 'Cancel' : '+ Add Item'}
-        </button>
-      </div>
-
-      {showAddForm && (
-        <form className="add-grocery-form" onSubmit={handleAddItem}>
-          <input
-            type="text"
-            placeholder="Item name"
-            value={newItemName}
-            onChange={(e) => setNewItemName(e.target.value)}
-            className="grocery-input"
-            required
-          />
-          <input
-            type="number"
-            placeholder="Quantity"
-            value={newItemQuantity}
-            onChange={(e) => setNewItemQuantity(e.target.value)}
-            className="grocery-input"
-            min="1"
-            required
-          />
-          <button type="submit" className="btn-submit-grocery">Add to List</button>
-        </form>
-      )}
-
-      {unpurchasedItems.length > 0 && (
-        <>
-          <h2 className="section-title">To Buy</h2>
-          <div className="grocery-grid">
-            {unpurchasedItems.map((grocery) => (
-              <GroceryCard
-                key={grocery.id}
-                name={grocery.name}
-                quantity={grocery.quantity}
-                purchased={grocery.purchased}
-                onToggle={() => toggleGroceryPurchased(grocery.id)}
-                onRemove={() => removeGroceryItem(grocery.id)}
-              />
-            ))}
-          </div>
-        </>
-      )}
-
-      {purchasedItems.length > 0 && (
-        <>
-          <h2 className="section-title purchased-title">Purchased</h2>
-          <div className="grocery-grid">
-            {purchasedItems.map((grocery) => (
-              <GroceryCard
-                key={grocery.id}
-                name={grocery.name}
-                quantity={grocery.quantity}
-                purchased={grocery.purchased}
-                onToggle={() => toggleGroceryPurchased(grocery.id)}
-                onRemove={() => removeGroceryItem(grocery.id)}
-              />
-            ))}
-          </div>
-        </>
-      )}
-
-      {groceryList.length === 0 && (
-        <p className="empty-grocery-message">Your grocery list is empty. Add some items!</p>
-      )}
-    </PageContent>
-  );
+    return (
+        <div className="grocery-container">
+            <h2>Grocery List</h2>
+            <button className="add-ingredient-btn" onClick={() => setShowForm(true)}>
+                Add New Ingredient
+            </button>
+            <div className="grocery-grid">
+                {availableItems.map((item, index) => (
+                    <GroceryCard 
+                        key={index}
+                        name={item.name}
+                        quantity={item.quantity}
+                        onQuantityChange={(newQuantity) => handleQuantityChange(item.name, newQuantity)}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default GroceryList;
-

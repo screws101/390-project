@@ -1,0 +1,36 @@
+.grocery-container {
+    padding: 2rem;
+}
+
+.grocery-container h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.add-ingredient-btn {
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 1.25rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    min-width: 200px;
+}
+
+.add-ingredient-btn:hover {
+    background-color: #314F16;
+}
+
+.grocery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}

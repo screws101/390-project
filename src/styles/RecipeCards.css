@@ -1,0 +1,126 @@
+.add-recipe-btn{
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+    margin-top: auto;
+    align-self: flex-start;
+    width: fit-content;
+    height:fit-content;
+}
+
+.recipe-card{
+    background-color: #ffffff;
+    border-radius: .75rem;
+    border: 1px solid #E6E6E6;
+    width: 15rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    margin: 1rem;
+}
+.recipe-name{
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.recipe-info{
+    color: #426B1F;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.recipe-ingredients{
+    color: #6D6D6D;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.btn-add{
+    background-color: #426B1F;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.80rem;
+    margin-top: auto;
+    align-self: flex-start;
+    width: fit-content;
+    height:fit-content;
+}
+
+.btn-add:hover{
+    background-color: #314F16;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.recipes-container {
+    padding: 2rem;
+}
+
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #dc3545;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #f8d7da;
+}
+
+.delete-btn .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.recipes-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.search-input {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E6E6E6;
+    border-radius: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #426B1F;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
